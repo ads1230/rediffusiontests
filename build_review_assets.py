@@ -31,46 +31,53 @@ USER_AGENT = "Mozilla/5.0 (reDiffusion review-assets builder)"
 # master pointed at a dead Akamai host, NASA TV's variants were 404 (channel
 # shut down), Apple's HEVC sample redirected to HTML and the Akamai live test
 # pattern had no variants left.
+# Logos: PNG renders from Wikimedia Commons (the app does not draw SVG), resolved
+# through the Commons API so the hashed paths are real. They double as the
+# programme image: every <programme> carries <icon src=logo> because the public
+# listings have no per-programme artwork (user request 2026-10-24).
+COMMONS = "https://upload.wikimedia.org/wikipedia/commons/"
+# Only pre-rendered thumbnail widths exist; 960px is what the Commons API hands out.
+REDBULL_LOGO = COMMONS + "thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png"
 CHANNELS = [
     ("france24.en", "France 24 English",
      "https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_5000.m3u8",
-     "News", "https://upload.wikimedia.org/wikipedia/commons/8/8a/France24.png",
+     "News", COMMONS + "thumb/c/c1/France_24_logo_%282013%29.svg/960px-France_24_logo_%282013%29.svg.png",
      ("GB", "12048")),
     ("aljazeera.en", "Al Jazeera English",
      "https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8",
-     "News", "https://upload.wikimedia.org/wikipedia/commons/f/f7/Aljazeera_eng.svg",
+     "News", COMMONS + "0/03/Al_Jazeera_Media_Network_Logo_design.png",
      ("GB", "12532")),
     ("dw.en", "DW English",
      "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8",
-     "News", "https://upload.wikimedia.org/wikipedia/commons/6/69/Deutsche_Welle_symbol_2012.svg",
+     "News", COMMONS + "thumb/7/75/Deutsche_Welle_symbol_2012.svg/960px-Deutsche_Welle_symbol_2012.svg.png",
      ("FR", "55871")),
     ("nhkworld", "NHK World-Japan",
      "https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8",
-     "News", "https://upload.wikimedia.org/wikipedia/commons/9/9c/NHK_World-Japan_logo.svg",
+     "News", COMMONS + "thumb/2/25/NHK_WORLD-JAPAN_logo.svg/960px-NHK_WORLD-JAPAN_logo.svg.png",
      ("GB", "12051")),
     ("bloomberg.eu", "Bloomberg TV Europe",
      "https://bloomberg.com/media-manifest/streams/eu.m3u8",
-     "News", "https://upload.wikimedia.org/wikipedia/commons/5/56/Bloomberg_logo.svg",
+     "News", COMMONS + "thumb/9/9d/Bloomberg_logo-2556aaa618.svg/960px-Bloomberg_logo-2556aaa618.svg.png",
      ("GB", "12464")),
     ("trtworld", "TRT World",
      "https://tv-trtworld.medya.trt.com.tr/master.m3u8",
-     "News", "https://upload.wikimedia.org/wikipedia/commons/4/4c/TRT_World_logo.svg",
+     "News", COMMONS + "thumb/6/6e/TRT_World_logo.svg/960px-TRT_World_logo.svg.png",
      ("GB", "12173")),
     ("arirang", "Arirang TV",
      "https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8",
-     "News", "https://upload.wikimedia.org/wikipedia/commons/2/2e/Arirang_TV_logo.svg",
+     "News", COMMONS + "thumb/4/42/Arirang-TV-Logo.svg/960px-Arirang-TV-Logo.svg.png",
      ("GB", "12037")),
     ("redbull.tv", "Red Bull TV",
      "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8",
-     "Sport", "https://upload.wikimedia.org/wikipedia/commons/f/f5/RedBullEnergyDrink.svg",
+     "Sport", REDBULL_LOGO,
      None),
     ("apple.bipbop", "Apple HLS Sample (VOD)",
      "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8",
-     "Test", "",
+     "Test", COMMONS + "thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png",
      None),
     ("mux.bbb", "Big Buck Bunny (VOD)",
      "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-     "Test", "",
+     "Test", COMMONS + "thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg",
      None),
 ]
 
@@ -136,8 +143,9 @@ PROGRAMME_RE = re.compile(r'<programme\b([^>]*)>(.*?)</programme>', re.S)
 ATTR_RE = re.compile(r'(\w+)="([^"]*)"')
 
 
-def extract_programmes(xml_text, source_id, new_id):
-    """Return the programme elements for one channel, re-keyed to new_id."""
+def extract_programmes(xml_text, source_id, new_id, icon_url=None):
+    """Return the programme elements for one channel, re-keyed to new_id.
+    Programmes without their own <icon> get the channel logo as their image."""
     out = []
     for m in PROGRAMME_RE.finditer(xml_text):
         attrs = dict(ATTR_RE.findall(m.group(1)))
@@ -151,13 +159,16 @@ def extract_programmes(xml_text, source_id, new_id):
         body = re.sub(r'\s*<audio>.*?</audio>', "", body, flags=re.S)
         # epg.pw tags English-language listings "zh" on some feeds; these channels are English.
         body = body.replace(' lang="zh"', ' lang="en"')
+        if icon_url and "<icon" not in body:
+            body = body.rstrip() + f'\n    <icon src="{sx.escape(icon_url, {chr(34): "&quot;"})}" />\n  '
         out.append((attrs.get("start", ""), f"  <programme {attr_text}>{body}</programme>"))
     out.sort()
     return [p for _, p in out]
 
 
-def synthetic_programmes(new_id, blocks, days, start=None):
+def synthetic_programmes(new_id, blocks, days, start=None, icon_url=None):
     out = []
+    icon = f'\n    <icon src="{sx.escape(icon_url, {chr(34): "&quot;"})}" />' if icon_url else ""
     if start is None:
         start = dt.datetime.now(dt.timezone.utc).replace(minute=0, second=0, microsecond=0) - dt.timedelta(hours=6)
     end = dt.datetime.now(dt.timezone.utc).replace(minute=0, second=0, microsecond=0) + dt.timedelta(days=days)
@@ -169,7 +180,7 @@ def synthetic_programmes(new_id, blocks, days, start=None):
         out.append(
             f'  <programme start="{t:%Y%m%d%H%M%S} +0000" stop="{stop:%Y%m%d%H%M%S} +0000" channel="{new_id}">\n'
             f'    <title lang="en">{sx.escape(title)}</title>\n'
-            f'    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>\n'
+            f'    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>{icon}\n'
             f'  </programme>'
         )
         t = stop
@@ -209,11 +220,11 @@ def main():
             try:
                 if country not in epg_cache:
                     epg_cache[country] = fetch_epg(country, args.cache)
-                progs = extract_programmes(epg_cache[country], source_id, tvg_id)
+                progs = extract_programmes(epg_cache[country], source_id, tvg_id, icon_url=logo or None)
             except Exception as exc:  # network trouble: fall back to generic blocks
                 report.append(f"{name}: epg.pw {country} unavailable ({exc}); using generic blocks")
         if not progs:
-            progs = synthetic_programmes(tvg_id, SYNTHETIC.get(tvg_id, [("Live", 60)]), args.days)
+            progs = synthetic_programmes(tvg_id, SYNTHETIC.get(tvg_id, [("Live", 60)]), args.days, icon_url=logo or None)
             report.append(f"{name}: {len(progs)} generic blocks")
         else:
             starts = re.findall(r'start="(\d{8})(\d{4})', "\n".join(progs))
@@ -223,7 +234,7 @@ def main():
             # goes blank before the next daily rebuild.
             last_stop = max(re.findall(r'stop="(\d{14})', "\n".join(progs)))
             resume = dt.datetime.strptime(last_stop, "%Y%m%d%H%M%S").replace(tzinfo=dt.timezone.utc)
-            padding = synthetic_programmes(tvg_id, [(f"{name} Live", 60)], args.days, start=resume)
+            padding = synthetic_programmes(tvg_id, [(f"{name} Live", 60)], args.days, start=resume, icon_url=logo or None)
             if padding:
                 report[-1] += f" (+{len(padding)} generic blocks to fill the horizon)"
             progs.extend(padding)
