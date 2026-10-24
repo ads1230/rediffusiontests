@@ -1,0 +1,33 @@
+name: Refresh review EPG
+
+# epg.pw publishes about a day of listings, so rebuild the guide daily and
+# whenever the generator changes. Only commits when the output differs.
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - build_review_assets.py
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild playlist and guide
+        run: python3 build_review_assets.py --out . --epg-url https://raw.githubusercontent.com/ads1230/rediffusiontests/main/review-epg.xml
+      - name: Commit if changed
+        run: |
+          git config user.name "review-epg-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add review-channels.m3u review-epg.xml
+          git diff --cached --quiet && echo "no change" && exit 0
+          git commit -m "Refresh review EPG $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
