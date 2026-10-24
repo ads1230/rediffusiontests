@@ -141,11 +141,58 @@ def fetch_epg(country, cache_dir):
 
 PROGRAMME_RE = re.compile(r'<programme\b([^>]*)>(.*?)</programme>', re.S)
 ATTR_RE = re.compile(r'(\w+)="([^"]*)"')
+TITLE_RE = re.compile(r'<title[^>]*>(.*?)</title>', re.S)
+
+# Programme categories (user request 2026-10-24: "for the example EPG can we
+# have categories … for the programs"). The public listings carry none, so
+# they are inferred from the title with the channel's playlist group as the
+# fallback. Vocabulary matches the app's genre classifier (EPGModels
+# EPGProgrammeGenre: sports / documentary / music / entertainment / movies /
+# news / kids) so every row gets a genre colour. First matching rule wins;
+# specific genres sit above the broad ones, as in the app.
+CATEGORY_RULES = [
+    (["Children", "Education"], ["little charo", "kids", "children", "cartoon"]),
+    (["Sport"], ["sport", "scoreline", "football", "racing", "red bull", "cycling", "motor"]),
+    (["Music"], ["k-pop", "music", "concert", "vibe in action"]),
+    (["Film", "Animation"], ["big buck bunny", "cinema", "movie", " film"]),
+    (["Business", "News"], ["money", "business", "biz", "profit", "wall street", "market", "bloomberg", "the deal",
+                            "economy", "primer", "rubenstein", "the circuit", "accelerators"]),
+    (["Arts", "Culture"], ["arts24", "paris des arts", "the art of", "k-culture", "kabuki", "culture", "manga",
+                           "mitateru", "classical japanese", "beauty", "design", "short cuts", "storyteller"]),
+    (["Travel", "Documentary"], ["trip in", "somewhere street", "across africa", "countryside", "journey", "travel",
+                                 "escape", "time-lapse"]),
+    (["Technology", "Science"], ["tech", "science", "digital"]),
+    (["Lifestyle", "Culture"], ["fashion", "food", "cooking", "pairing"]),
+    (["Documentary"], ["documentary", "japanology", "samurai", "behind the scenes", "zero waste", "degrees",
+                       "history", "nature", "wildlife", "life", "360", "witness", "101 east", "fault lines",
+                       "investigates", "revisited", "listening post", "explains"]),
+    (["Current Affairs", "News"], ["inside story", "focus", "observers", "reporters", "newsmakers", "talking europe",
+                                   "roundtable", "debrief", "the 51 percent", "french connections", "world this week",
+                                   "nexus", "debate", "people and", "moo no plan", "strait", "head to head",
+                                   "counting the cost"]),
+    (["Talk Show", "Entertainment"], ["show", "tete a tete", "entre nous", "guest of the day", "laugh", "interview",
+                                      "talk", "wakey", "i'm live"]),
+    (["News"], ["news", "newshour", "newsline", "newsfeed", "live", "weather"]),
+]
+GROUP_CATEGORIES = {"News": ["News"], "Sport": ["Sport"], "Test": ["Entertainment"]}
 
 
-def extract_programmes(xml_text, source_id, new_id, icon_url=None):
+def categories_for(title, group):
+    lowered = title.lower()
+    for categories, keywords in CATEGORY_RULES:
+        if any(k in lowered for k in keywords):
+            return categories
+    return GROUP_CATEGORIES.get(group, ["Entertainment"])
+
+
+def category_xml(categories):
+    return "".join(f'\n    <category lang="en">{sx.escape(c)}</category>' for c in categories)
+
+
+def extract_programmes(xml_text, source_id, new_id, group="News", icon_url=None):
     """Return the programme elements for one channel, re-keyed to new_id.
-    Programmes without their own <icon> get the channel logo as their image."""
+    Programmes without their own <icon> get the channel logo as their image;
+    programmes without their own <category> get inferred ones."""
     out = []
     for m in PROGRAMME_RE.finditer(xml_text):
         attrs = dict(ATTR_RE.findall(m.group(1)))
@@ -159,14 +206,19 @@ def extract_programmes(xml_text, source_id, new_id, icon_url=None):
         body = re.sub(r'\s*<audio>.*?</audio>', "", body, flags=re.S)
         # epg.pw tags English-language listings "zh" on some feeds; these channels are English.
         body = body.replace(' lang="zh"', ' lang="en"')
+        if "<category" not in body:
+            title_match = TITLE_RE.search(body)
+            title = sx.unescape(title_match.group(1)) if title_match else ""
+            body = body.rstrip() + category_xml(categories_for(title, group))
         if icon_url and "<icon" not in body:
-            body = body.rstrip() + f'\n    <icon src="{sx.escape(icon_url, {chr(34): "&quot;"})}" />\n  '
+            body = body.rstrip() + f'\n    <icon src="{sx.escape(icon_url, {chr(34): "&quot;"})}" />'
+        body = body.rstrip() + "\n  "
         out.append((attrs.get("start", ""), f"  <programme {attr_text}>{body}</programme>"))
     out.sort()
     return [p for _, p in out]
 
 
-def synthetic_programmes(new_id, blocks, days, start=None, icon_url=None):
+def synthetic_programmes(new_id, blocks, days, start=None, icon_url=None, group="News"):
     out = []
     icon = f'\n    <icon src="{sx.escape(icon_url, {chr(34): "&quot;"})}" />' if icon_url else ""
     if start is None:
@@ -180,7 +232,8 @@ def synthetic_programmes(new_id, blocks, days, start=None, icon_url=None):
         out.append(
             f'  <programme start="{t:%Y%m%d%H%M%S} +0000" stop="{stop:%Y%m%d%H%M%S} +0000" channel="{new_id}">\n'
             f'    <title lang="en">{sx.escape(title)}</title>\n'
-            f'    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>{icon}\n'
+            f'    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>'
+            f'{category_xml(categories_for(title, group))}{icon}\n'
             f'  </programme>'
         )
         t = stop
@@ -220,11 +273,11 @@ def main():
             try:
                 if country not in epg_cache:
                     epg_cache[country] = fetch_epg(country, args.cache)
-                progs = extract_programmes(epg_cache[country], source_id, tvg_id, icon_url=logo or None)
+                progs = extract_programmes(epg_cache[country], source_id, tvg_id, group=group, icon_url=logo or None)
             except Exception as exc:  # network trouble: fall back to generic blocks
                 report.append(f"{name}: epg.pw {country} unavailable ({exc}); using generic blocks")
         if not progs:
-            progs = synthetic_programmes(tvg_id, SYNTHETIC.get(tvg_id, [("Live", 60)]), args.days, icon_url=logo or None)
+            progs = synthetic_programmes(tvg_id, SYNTHETIC.get(tvg_id, [("Live", 60)]), args.days, icon_url=logo or None, group=group)
             report.append(f"{name}: {len(progs)} generic blocks")
         else:
             starts = re.findall(r'start="(\d{8})(\d{4})', "\n".join(progs))
@@ -234,7 +287,7 @@ def main():
             # goes blank before the next daily rebuild.
             last_stop = max(re.findall(r'stop="(\d{14})', "\n".join(progs)))
             resume = dt.datetime.strptime(last_stop, "%Y%m%d%H%M%S").replace(tzinfo=dt.timezone.utc)
-            padding = synthetic_programmes(tvg_id, [(f"{name} Live", 60)], args.days, start=resume, icon_url=logo or None)
+            padding = synthetic_programmes(tvg_id, [(f"{name} Live", 60)], args.days, start=resume, icon_url=logo or None, group=group)
             if padding:
                 report[-1] += f" (+{len(padding)} generic blocks to fill the horizon)"
             progs.extend(padding)
