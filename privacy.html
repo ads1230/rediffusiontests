@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>reDiffusion – Privacy Policy</title>
+<style>
+  body { font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; color: #1d1d1f; background: #fff; margin: 0; padding: 2rem 1.25rem 4rem; }
+  main { max-width: 44rem; margin: 0 auto; }
+  h1 { font-size: 2rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.25rem; margin-top: 2rem; }
+  .meta { color: #6e6e73; margin-top: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .95em; }
+  th, td { text-align: left; vertical-align: top; padding: .5rem .6rem; border-bottom: 1px solid #e5e5ea; }
+  th { color: #6e6e73; font-weight: 600; }
+  a { color: #0066cc; }
+  @media (prefers-color-scheme: dark) { body { background: #000; color: #f5f5f7; } th { color: #a1a1a6; } .meta { color: #a1a1a6; } th, td { border-color: #333; } a { color: #2997ff; } }
+</style>
+</head>
+<body>
+<main>
+<h1>reDiffusion Privacy Policy</h1>
+<p class="meta">Effective 24 October 2026</p>
+
+<p>reDiffusion is a TV guide and media player for iPhone, iPad, Mac and Apple TV. It plays live television and video from sources <strong>you</strong> configure: network tuners on your home network, playlists you add, and your own media servers. This policy explains what the app stores, where it goes, and what we can and cannot see.</p>
+
+<h2>The short version</h2>
+<ul>
+  <li>reDiffusion has <strong>no accounts, no analytics, no advertising and no tracking</strong>.</li>
+  <li>Your settings, sources, sign-in details and watch history stay <strong>on your devices</strong> and, if you turn on iCloud sync, in <strong>your own iCloud</strong>. We cannot read them.</li>
+  <li>The app contacts <strong>your</strong> sources, a small number of services we operate for guide data and artwork, and only those third-party services <strong>you choose to enable</strong>.</li>
+  <li>We do not sell, share or collect personal data.</li>
+</ul>
+
+<h2>Data stored on your device</h2>
+<p>To work, the app keeps the following on each device where you use it:</p>
+<ul>
+  <li>Your sources: tuner addresses, playlist and guide URLs, media-server addresses, and the categories and channel matches you set up.</li>
+  <li>Sign-in details for your media servers and for any optional services you enable. These are stored in the device <strong>Keychain</strong>, Apple's encrypted credential store.</li>
+  <li>Watch progress, watched episodes, favourites, reminders and downloaded episodes.</li>
+  <li>Cached guide data, artwork and the app's preferences.</li>
+</ul>
+<p>All of this is removed when you delete the app (downloads and caches) or when you remove the source inside the app. Keychain items are removed when you sign out of a source or delete the app's data.</p>
+
+<h2>iCloud sync (optional)</h2>
+<p>If you enable iCloud sync, your sources, preferences, watch state and sign-in details are stored in the <strong>private</strong> CloudKit database of your own Apple Account and in your iCloud Keychain, so your other devices pick them up. Apple holds that data under its own <a href="https://www.apple.com/legal/privacy/">privacy policy</a>; it is encrypted to your account and <strong>we have no access to it</strong>. Turn sync off in Settings at any time; the data stays in your iCloud until you remove it or delete the app's iCloud data from your Apple Account settings.</p>
+
+<h2>Where the app connects</h2>
+<table>
+<tr><th>Destination</th><th>What is sent</th><th>Why</th></tr>
+<tr><td><strong>Your own sources</strong> (tuners, playlists, Jellyfin, Plex, Emby, Xtream-API servers, network shares, cloud drives)</td><td>Your credentials for that source, the channels and items you request, and your playback position where the server tracks it.</td><td>To list and play your content. These connections are between your device and your source; we are not involved.</td></tr>
+<tr><td><strong>Services we operate</strong> (guide data, programme artwork and descriptions, SAT&gt;IP playlist templates, hosted at <code>n-u-l-l.studio</code> domains)</td><td>The guide region or programme titles the app needs to look up, and the ordinary technical details of any web request (your IP address, device type and app version).</td><td>To fill the guide with programme information and artwork. Requests are processed to serve the response. Routine server logs may keep IP addresses and requested URLs for a short period for security and reliability; they are not linked to you, used for profiling, or shared.</td></tr>
+<tr><td><strong>Optional third-party services you enable</strong></td><td>See the next section.</td><td>Extra features such as subtitles, scrobbling and skip markers.</td></tr>
+</table>
+<p>The app also uses your <strong>local network</strong> to find tuners (HDHomeRun and SAT&gt;IP devices). iOS and tvOS ask for your permission first. Nothing about your network is sent to us.</p>
+
+<h2>Optional third-party services</h2>
+<p>These are off by default, except where noted, and only contacted when you turn them on in Settings. Each is governed by its provider's own privacy policy, and you can turn each off at any time.</p>
+<table>
+<tr><th>Service</th><th>Used for</th><th>What it receives</th></tr>
+<tr><td>TMDB, TVmaze and Wikidata (through our programme catalogue, on by default)</td><td>Programme descriptions, episode information and artwork</td><td>Programme titles the guide needs to identify. These providers do not endorse or certify reDiffusion.</td></tr>
+<tr><td><a href="https://fanart.tv">fanart.tv</a></td><td>Channel and programme artwork</td><td>Programme identifiers</td></tr>
+<tr><td><a href="https://www.opensubtitles.com">OpenSubtitles</a></td><td>Downloading subtitles</td><td>Film or episode details to search for; your OpenSubtitles account if you sign in</td></tr>
+<tr><td><a href="https://simkl.com">SIMKL</a></td><td>Tracking what you watch (scrobbling)</td><td>What you play and when, under your SIMKL account</td></tr>
+<tr><td>Watcharr and Yamtrack (self-hosted)</td><td>Tracking what you watch on your own server</td><td>What you play, sent to the server you configure</td></tr>
+<tr><td>SkipDB, TheIntroDB, introdb.app, Anime Skip and AniList</td><td>Intro, recap and credits markers</td><td>Programme or episode identifiers</td></tr>
+<tr><td>Apple AirPlay and Picture in Picture</td><td>Playing to other screens</td><td>Handled by Apple's frameworks on your device</td></tr>
+</table>
+
+<h2>Notifications</h2>
+<p>Programme reminders are local notifications scheduled on your device. The app uses Apple's push service only to keep iCloud sync up to date between your devices; those pushes carry no content.</p>
+
+<h2>What we do not do</h2>
+<ul>
+  <li>No analytics or crash-reporting services of our own. If you share diagnostics with Apple, that is governed by Apple's settings on your device.</li>
+  <li>No advertising, no advertising identifiers, no tracking across apps or websites.</li>
+  <li>No sale or sharing of personal data.</li>
+  <li>No data processing on our servers beyond answering the requests described above.</li>
+</ul>
+
+<h2>Children</h2>
+<p>reDiffusion is not directed at children under 13 and does not knowingly collect information from them. The app plays whatever sources an adult configures.</p>
+
+<h2>Your rights</h2>
+<p>Because your data lives on your devices and in your own iCloud, you control it directly: edit or remove sources in the app, sign out of services, turn off iCloud sync, or delete the app. For data held by a third-party service you enabled, contact that provider. Under the UK GDPR and equivalent laws you may ask us what information our servers hold about a request; in practice this is limited to short-lived server logs. Contact details are below.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the new version will be published at this address with a new effective date. Changes that affect what the app sends will also be noted in the app's release notes.</p>
+
+<h2>Contact</h2>
+<p>reDiffusion is developed by Adam Zumla. Questions about this policy or about the app can be sent to <strong>CONTACT_EMAIL</strong>. Support information is on the <a href="index.html">support page</a>.</p>
+</main>
+</body>
+</html>
