@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tv SYSTEM "xmltv.dtd">
-<tv date="20261024125036 +0000" generator-info-name="reDiffusion review assets" source-info-name="epg.pw (public XMLTV) + broadcaster streams">
+<tv date="20261024125056 +0000" generator-info-name="reDiffusion review assets" source-info-name="epg.pw (public XMLTV) + broadcaster streams">
   <channel id="france24.en">
     <display-name lang="en">France 24 English</display-name>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/8/8a/France24.png" />
