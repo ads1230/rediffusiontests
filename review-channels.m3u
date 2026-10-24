@@ -1,17 +1,21 @@
 #EXTM3U x-tvg-url="https://raw.githubusercontent.com/ads1230/rediffusiontests/main/review-epg.xml"
 #EXTINF:-1 tvg-id="france24.en" tvg-name="France 24 English" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/8a/France24.png" group-title="News",France 24 English
-https://static.france24.com/live/F24_EN_HI_HLS/live_web.m3u8
+https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_5000.m3u8
+#EXTINF:-1 tvg-id="aljazeera.en" tvg-name="Al Jazeera English" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/f7/Aljazeera_eng.svg" group-title="News",Al Jazeera English
+https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8
 #EXTINF:-1 tvg-id="dw.en" tvg-name="DW English" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/69/Deutsche_Welle_symbol_2012.svg" group-title="News",DW English
 https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8
+#EXTINF:-1 tvg-id="nhkworld" tvg-name="NHK World-Japan" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9c/NHK_World-Japan_logo.svg" group-title="News",NHK World-Japan
+https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8
+#EXTINF:-1 tvg-id="bloomberg.eu" tvg-name="Bloomberg TV Europe" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/56/Bloomberg_logo.svg" group-title="News",Bloomberg TV Europe
+https://bloomberg.com/media-manifest/streams/eu.m3u8
 #EXTINF:-1 tvg-id="trtworld" tvg-name="TRT World" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/4/4c/TRT_World_logo.svg" group-title="News",TRT World
 https://tv-trtworld.medya.trt.com.tr/master.m3u8
 #EXTINF:-1 tvg-id="arirang" tvg-name="Arirang TV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/2e/Arirang_TV_logo.svg" group-title="News",Arirang TV
 https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8
-#EXTINF:-1 tvg-id="nasa.tv" tvg-name="NASA TV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" group-title="Science",NASA TV
-https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8
 #EXTINF:-1 tvg-id="redbull.tv" tvg-name="Red Bull TV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/f5/RedBullEnergyDrink.svg" group-title="Sport",Red Bull TV
 https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
-#EXTINF:-1 tvg-id="akamai.test" tvg-name="Akamai Live Test Pattern" group-title="Test",Akamai Live Test Pattern
-https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8
-#EXTINF:-1 tvg-id="apple.bipbop" tvg-name="Apple HLS Sample (HEVC)" group-title="Test",Apple HLS Sample (HEVC)
-https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_hevc/master.m3u8
+#EXTINF:-1 tvg-id="apple.bipbop" tvg-name="Apple HLS Sample (VOD)" group-title="Test",Apple HLS Sample (VOD)
+https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8
+#EXTINF:-1 tvg-id="mux.bbb" tvg-name="Big Buck Bunny (VOD)" group-title="Test",Big Buck Bunny (VOD)
+https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8

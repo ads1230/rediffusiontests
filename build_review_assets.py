@@ -24,15 +24,34 @@ EPG_BASE = "https://epg.pw/xmltv/epg_{country}.xml"
 USER_AGENT = "Mozilla/5.0 (reDiffusion review-assets builder)"
 
 # tvg-id, display name, stream URL, group, logo, (epg country, epg channel id) or None
+# Every stream URL is the broadcaster's own endpoint (or Apple's / Mux's public
+# test content). All were verified master → variant → segment on 2026-10-24;
+# the generator re-verifies on every run and drops anything that no longer plays
+# (see stream_is_alive), because these move: on 2026-10-24 the old France 24
+# master pointed at a dead Akamai host, NASA TV's variants were 404 (channel
+# shut down), Apple's HEVC sample redirected to HTML and the Akamai live test
+# pattern had no variants left.
 CHANNELS = [
     ("france24.en", "France 24 English",
-     "https://static.france24.com/live/F24_EN_HI_HLS/live_web.m3u8",
+     "https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_5000.m3u8",
      "News", "https://upload.wikimedia.org/wikipedia/commons/8/8a/France24.png",
-     ("DE", "76807")),
+     ("GB", "12048")),
+    ("aljazeera.en", "Al Jazeera English",
+     "https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8",
+     "News", "https://upload.wikimedia.org/wikipedia/commons/f/f7/Aljazeera_eng.svg",
+     ("GB", "12532")),
     ("dw.en", "DW English",
      "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8",
      "News", "https://upload.wikimedia.org/wikipedia/commons/6/69/Deutsche_Welle_symbol_2012.svg",
      ("FR", "55871")),
+    ("nhkworld", "NHK World-Japan",
+     "https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8",
+     "News", "https://upload.wikimedia.org/wikipedia/commons/9/9c/NHK_World-Japan_logo.svg",
+     ("GB", "12051")),
+    ("bloomberg.eu", "Bloomberg TV Europe",
+     "https://bloomberg.com/media-manifest/streams/eu.m3u8",
+     "News", "https://upload.wikimedia.org/wikipedia/commons/5/56/Bloomberg_logo.svg",
+     ("GB", "12464")),
     ("trtworld", "TRT World",
      "https://tv-trtworld.medya.trt.com.tr/master.m3u8",
      "News", "https://upload.wikimedia.org/wikipedia/commons/4/4c/TRT_World_logo.svg",
@@ -41,31 +60,61 @@ CHANNELS = [
      "https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8",
      "News", "https://upload.wikimedia.org/wikipedia/commons/2/2e/Arirang_TV_logo.svg",
      ("GB", "12037")),
-    ("nasa.tv", "NASA TV",
-     "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master.m3u8",
-     "Science", "https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg",
-     None),
     ("redbull.tv", "Red Bull TV",
      "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8",
      "Sport", "https://upload.wikimedia.org/wikipedia/commons/f/f5/RedBullEnergyDrink.svg",
      None),
-    ("akamai.test", "Akamai Live Test Pattern",
-     "https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8",
+    ("apple.bipbop", "Apple HLS Sample (VOD)",
+     "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8",
      "Test", "",
      None),
-    ("apple.bipbop", "Apple HLS Sample (HEVC)",
-     "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_hevc/master.m3u8",
+    ("mux.bbb", "Big Buck Bunny (VOD)",
+     "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
      "Test", "",
      None),
 ]
 
 # Generic schedule for channels without public listings: (title, minutes).
 SYNTHETIC = {
-    "nasa.tv": [("NASA TV Live Coverage", 60), ("ISS Live Views", 60), ("NASA Science Hour", 60)],
     "redbull.tv": [("Red Bull TV Live", 60), ("Sports Highlights", 30), ("Documentary Block", 90)],
-    "akamai.test": [("Test Pattern", 60)],
     "apple.bipbop": [("HLS Sample Loop", 30)],
+    "mux.bbb": [("Big Buck Bunny", 60)],
 }
+
+
+def stream_is_alive(url, timeout=20):
+    """Master → first variant → last segment (ranged GET). A 200 on the master
+    alone proved worthless: dead channels keep serving a master for months."""
+    import urllib.parse
+
+    def fetch(u, rng=None):
+        headers = {"User-Agent": "AppleCoreMedia/1.0.0 (iPhone; U; CPU OS 27_1 like Mac OS X)"}
+        if rng:
+            headers["Range"] = rng
+        req = urllib.request.Request(u, headers=headers)
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.read(), resp.geturl()
+
+    try:
+        body, final = fetch(url)
+        text = body.decode("utf-8", "replace")
+        if not text.lstrip().startswith("#EXTM3U"):
+            return False, "master is not an M3U8"
+        lines = [l.strip() for l in text.splitlines() if l.strip()]
+        if "#EXT-X-STREAM-INF" in text:
+            variant = urllib.parse.urljoin(final, next(l for l in lines if not l.startswith("#")))
+            body, final = fetch(variant)
+            text = body.decode("utf-8", "replace")
+            if not text.lstrip().startswith("#EXTM3U"):
+                return False, "variant is not an M3U8"
+            lines = [l.strip() for l in text.splitlines() if l.strip()]
+        segments = [l for l in lines if not l.startswith("#")]
+        if not segments:
+            return False, "media playlist has no segments"
+        fetch(urllib.parse.urljoin(final, segments[-1]), "bytes=0-65535")
+        return True, "live" if "#EXT-X-ENDLIST" not in text else "vod"
+    except Exception as exc:  # any HTTP/network failure means a reviewer would see a spinner
+        return False, f"{type(exc).__name__}: {str(exc)[:80]}"
 
 
 def fetch_epg(country, cache_dir):
@@ -135,13 +184,23 @@ def main():
     ap.add_argument("--cache", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), ".epg-cache"))
     ap.add_argument("--epg-url", default="review-epg.xml",
                     help="value for the playlist's x-tvg-url (use the absolute hosted URL when publishing)")
+    ap.add_argument("--keep-dead", action="store_true",
+                    help="publish channels even when their stream fails the end-to-end check")
     args = ap.parse_args()
 
     epg_cache = {}
     channel_xml = []
     programme_xml = []
     report = []
+    published = []
     for tvg_id, name, url, group, logo, source in CHANNELS:
+        alive, detail = stream_is_alive(url)
+        if not alive and not args.keep_dead:
+            report.append(f"{name}: DROPPED, stream failed ({detail})")
+            continue
+        if not alive:
+            report.append(f"{name}: WARNING stream failed ({detail}) but kept")
+        published.append((tvg_id, name, url, group, logo, source))
         icon = f'\n    <icon src="{sx.escape(logo)}" />' if logo else ""
         channel_xml.append(f'  <channel id="{tvg_id}">\n    <display-name lang="en">{sx.escape(name)}</display-name>{icon}\n  </channel>')
         progs = []
@@ -179,7 +238,7 @@ def main():
         + "\n".join(channel_xml) + "\n" + "\n".join(programme_xml) + "\n</tv>\n"
     )
     m3u_lines = [f'#EXTM3U x-tvg-url="{args.epg_url}"']
-    for tvg_id, name, url, group, logo, _ in CHANNELS:
+    for tvg_id, name, url, group, logo, _ in published:
         logo_attr = f' tvg-logo="{logo}"' if logo else ""
         m3u_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-name="{name}"{logo_attr} group-title="{group}",{name}')
         m3u_lines.append(url)
@@ -191,7 +250,8 @@ def main():
     print("\n".join(report))
     print(f"wrote {os.path.join(args.out, 'review-channels.m3u')} and review-epg.xml "
           f"({len(channel_xml)} channels, {len(programme_xml)} programmes)")
-    return 0
+    # Fail the run (and the Actions job) if the list has thinned out badly.
+    return 0 if len(published) >= 5 else 1
 
 
 if __name__ == "__main__":
