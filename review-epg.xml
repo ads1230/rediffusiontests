@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tv SYSTEM "xmltv.dtd">
-<tv date="20261030095821 +0000" generator-info-name="reDiffusion review assets" source-info-name="epg.pw (public XMLTV) + broadcaster streams">
+<tv date="20261030204721 +0000" generator-info-name="reDiffusion review assets" source-info-name="epg.pw (public XMLTV) + broadcaster streams">
   <channel id="france24.en">
     <display-name lang="en">France 24 English</display-name>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/France_24_logo_%282013%29.svg/960px-France_24_logo_%282013%29.svg.png" />
@@ -34,11 +34,11 @@
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </channel>
   <channel id="apple.bipbop">
-    <display-name lang="en">Apple HLS Sample (VOD)</display-name>
+    <display-name lang="en">Apple HLS Sample (test stream)</display-name>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </channel>
   <channel id="mux.bbb">
-    <display-name lang="en">Big Buck Bunny (VOD)</display-name>
+    <display-name lang="en">Big Buck Bunny (test stream)</display-name>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
   </channel>
   <programme channel="france24.en" start="20261030000000 +0000" stop="20261030001500 +0000">
@@ -7495,461 +7495,329 @@
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Arirang-TV-Logo.svg/960px-Arirang-TV-Logo.svg.png" />
   </programme>
-  <programme start="20261030030000 +0000" stop="20261030040000 +0000" channel="redbull.tv">
+  <programme start="20261030140000 +0000" stop="20261030150000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030040000 +0000" stop="20261030043000 +0000" channel="redbull.tv">
+  <programme start="20261030150000 +0000" stop="20261030153000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030043000 +0000" stop="20261030060000 +0000" channel="redbull.tv">
+  <programme start="20261030153000 +0000" stop="20261030170000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030060000 +0000" stop="20261030070000 +0000" channel="redbull.tv">
+  <programme start="20261030170000 +0000" stop="20261030180000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030070000 +0000" stop="20261030073000 +0000" channel="redbull.tv">
+  <programme start="20261030180000 +0000" stop="20261030183000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030073000 +0000" stop="20261030090000 +0000" channel="redbull.tv">
+  <programme start="20261030183000 +0000" stop="20261030200000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030090000 +0000" stop="20261030100000 +0000" channel="redbull.tv">
+  <programme start="20261030200000 +0000" stop="20261030210000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030100000 +0000" stop="20261030103000 +0000" channel="redbull.tv">
+  <programme start="20261030210000 +0000" stop="20261030213000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030103000 +0000" stop="20261030120000 +0000" channel="redbull.tv">
+  <programme start="20261030213000 +0000" stop="20261030230000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030120000 +0000" stop="20261030130000 +0000" channel="redbull.tv">
+  <programme start="20261030230000 +0000" stop="20261031000000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030130000 +0000" stop="20261030133000 +0000" channel="redbull.tv">
+  <programme start="20261031000000 +0000" stop="20261031003000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030133000 +0000" stop="20261030150000 +0000" channel="redbull.tv">
+  <programme start="20261031003000 +0000" stop="20261031020000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030150000 +0000" stop="20261030160000 +0000" channel="redbull.tv">
+  <programme start="20261031020000 +0000" stop="20261031030000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030160000 +0000" stop="20261030163000 +0000" channel="redbull.tv">
+  <programme start="20261031030000 +0000" stop="20261031033000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030163000 +0000" stop="20261030180000 +0000" channel="redbull.tv">
+  <programme start="20261031033000 +0000" stop="20261031050000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030180000 +0000" stop="20261030190000 +0000" channel="redbull.tv">
+  <programme start="20261031050000 +0000" stop="20261031060000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030190000 +0000" stop="20261030193000 +0000" channel="redbull.tv">
+  <programme start="20261031060000 +0000" stop="20261031063000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030193000 +0000" stop="20261030210000 +0000" channel="redbull.tv">
+  <programme start="20261031063000 +0000" stop="20261031080000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030210000 +0000" stop="20261030220000 +0000" channel="redbull.tv">
+  <programme start="20261031080000 +0000" stop="20261031090000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030220000 +0000" stop="20261030223000 +0000" channel="redbull.tv">
+  <programme start="20261031090000 +0000" stop="20261031093000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261030223000 +0000" stop="20261031000000 +0000" channel="redbull.tv">
+  <programme start="20261031093000 +0000" stop="20261031110000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031000000 +0000" stop="20261031010000 +0000" channel="redbull.tv">
+  <programme start="20261031110000 +0000" stop="20261031120000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031010000 +0000" stop="20261031013000 +0000" channel="redbull.tv">
+  <programme start="20261031120000 +0000" stop="20261031123000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031013000 +0000" stop="20261031030000 +0000" channel="redbull.tv">
+  <programme start="20261031123000 +0000" stop="20261031140000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031030000 +0000" stop="20261031040000 +0000" channel="redbull.tv">
+  <programme start="20261031140000 +0000" stop="20261031150000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031040000 +0000" stop="20261031043000 +0000" channel="redbull.tv">
+  <programme start="20261031150000 +0000" stop="20261031153000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031043000 +0000" stop="20261031060000 +0000" channel="redbull.tv">
+  <programme start="20261031153000 +0000" stop="20261031170000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031060000 +0000" stop="20261031070000 +0000" channel="redbull.tv">
+  <programme start="20261031170000 +0000" stop="20261031180000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031070000 +0000" stop="20261031073000 +0000" channel="redbull.tv">
+  <programme start="20261031180000 +0000" stop="20261031183000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031073000 +0000" stop="20261031090000 +0000" channel="redbull.tv">
+  <programme start="20261031183000 +0000" stop="20261031200000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031090000 +0000" stop="20261031100000 +0000" channel="redbull.tv">
+  <programme start="20261031200000 +0000" stop="20261031210000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031100000 +0000" stop="20261031103000 +0000" channel="redbull.tv">
+  <programme start="20261031210000 +0000" stop="20261031213000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031103000 +0000" stop="20261031120000 +0000" channel="redbull.tv">
+  <programme start="20261031213000 +0000" stop="20261031230000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031120000 +0000" stop="20261031130000 +0000" channel="redbull.tv">
+  <programme start="20261031230000 +0000" stop="20261101000000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031130000 +0000" stop="20261031133000 +0000" channel="redbull.tv">
+  <programme start="20261101000000 +0000" stop="20261101003000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031133000 +0000" stop="20261031150000 +0000" channel="redbull.tv">
+  <programme start="20261101003000 +0000" stop="20261101020000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031150000 +0000" stop="20261031160000 +0000" channel="redbull.tv">
+  <programme start="20261101020000 +0000" stop="20261101030000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031160000 +0000" stop="20261031163000 +0000" channel="redbull.tv">
+  <programme start="20261101030000 +0000" stop="20261101033000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031163000 +0000" stop="20261031180000 +0000" channel="redbull.tv">
+  <programme start="20261101033000 +0000" stop="20261101050000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031180000 +0000" stop="20261031190000 +0000" channel="redbull.tv">
+  <programme start="20261101050000 +0000" stop="20261101060000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031190000 +0000" stop="20261031193000 +0000" channel="redbull.tv">
+  <programme start="20261101060000 +0000" stop="20261101063000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031193000 +0000" stop="20261031210000 +0000" channel="redbull.tv">
+  <programme start="20261101063000 +0000" stop="20261101080000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031210000 +0000" stop="20261031220000 +0000" channel="redbull.tv">
+  <programme start="20261101080000 +0000" stop="20261101090000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031220000 +0000" stop="20261031223000 +0000" channel="redbull.tv">
+  <programme start="20261101090000 +0000" stop="20261101093000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261031223000 +0000" stop="20261101000000 +0000" channel="redbull.tv">
+  <programme start="20261101093000 +0000" stop="20261101110000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261101000000 +0000" stop="20261101010000 +0000" channel="redbull.tv">
+  <programme start="20261101110000 +0000" stop="20261101120000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261101010000 +0000" stop="20261101013000 +0000" channel="redbull.tv">
+  <programme start="20261101120000 +0000" stop="20261101123000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261101013000 +0000" stop="20261101030000 +0000" channel="redbull.tv">
+  <programme start="20261101123000 +0000" stop="20261101140000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261101030000 +0000" stop="20261101040000 +0000" channel="redbull.tv">
+  <programme start="20261101140000 +0000" stop="20261101150000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261101040000 +0000" stop="20261101043000 +0000" channel="redbull.tv">
+  <programme start="20261101150000 +0000" stop="20261101153000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261101043000 +0000" stop="20261101060000 +0000" channel="redbull.tv">
+  <programme start="20261101153000 +0000" stop="20261101170000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261101060000 +0000" stop="20261101070000 +0000" channel="redbull.tv">
+  <programme start="20261101170000 +0000" stop="20261101180000 +0000" channel="redbull.tv">
     <title lang="en">Red Bull TV Live</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261101070000 +0000" stop="20261101073000 +0000" channel="redbull.tv">
+  <programme start="20261101180000 +0000" stop="20261101183000 +0000" channel="redbull.tv">
     <title lang="en">Sports Highlights</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Sport</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
   </programme>
-  <programme start="20261101073000 +0000" stop="20261101090000 +0000" channel="redbull.tv">
+  <programme start="20261101183000 +0000" stop="20261101200000 +0000" channel="redbull.tv">
     <title lang="en">Documentary Block</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Documentary</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" />
-  </programme>
-  <programme start="20261030030000 +0000" stop="20261030033000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030033000 +0000" stop="20261030040000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030040000 +0000" stop="20261030043000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030043000 +0000" stop="20261030050000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030050000 +0000" stop="20261030053000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030053000 +0000" stop="20261030060000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030060000 +0000" stop="20261030063000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030063000 +0000" stop="20261030070000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030070000 +0000" stop="20261030073000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030073000 +0000" stop="20261030080000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030080000 +0000" stop="20261030083000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030083000 +0000" stop="20261030090000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030090000 +0000" stop="20261030093000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030093000 +0000" stop="20261030100000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030100000 +0000" stop="20261030103000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030103000 +0000" stop="20261030110000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030110000 +0000" stop="20261030113000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030113000 +0000" stop="20261030120000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030120000 +0000" stop="20261030123000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030123000 +0000" stop="20261030130000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030130000 +0000" stop="20261030133000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
-  </programme>
-  <programme start="20261030133000 +0000" stop="20261030140000 +0000" channel="apple.bipbop">
-    <title lang="en">HLS Sample Loop</title>
-    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Entertainment</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
   <programme start="20261030140000 +0000" stop="20261030143000 +0000" channel="apple.bipbop">
     <title lang="en">HLS Sample Loop</title>
@@ -8467,82 +8335,137 @@
     <category lang="en">Entertainment</category>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
-  <programme start="20261030030000 +0000" stop="20261030040000 +0000" channel="mux.bbb">
-    <title lang="en">Big Buck Bunny</title>
+  <programme start="20261101090000 +0000" stop="20261101093000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Film</category>
-    <category lang="en">Animation</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
-  <programme start="20261030040000 +0000" stop="20261030050000 +0000" channel="mux.bbb">
-    <title lang="en">Big Buck Bunny</title>
+  <programme start="20261101093000 +0000" stop="20261101100000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Film</category>
-    <category lang="en">Animation</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
-  <programme start="20261030050000 +0000" stop="20261030060000 +0000" channel="mux.bbb">
-    <title lang="en">Big Buck Bunny</title>
+  <programme start="20261101100000 +0000" stop="20261101103000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Film</category>
-    <category lang="en">Animation</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
-  <programme start="20261030060000 +0000" stop="20261030070000 +0000" channel="mux.bbb">
-    <title lang="en">Big Buck Bunny</title>
+  <programme start="20261101103000 +0000" stop="20261101110000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Film</category>
-    <category lang="en">Animation</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
-  <programme start="20261030070000 +0000" stop="20261030080000 +0000" channel="mux.bbb">
-    <title lang="en">Big Buck Bunny</title>
+  <programme start="20261101110000 +0000" stop="20261101113000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Film</category>
-    <category lang="en">Animation</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
-  <programme start="20261030080000 +0000" stop="20261030090000 +0000" channel="mux.bbb">
-    <title lang="en">Big Buck Bunny</title>
+  <programme start="20261101113000 +0000" stop="20261101120000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Film</category>
-    <category lang="en">Animation</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
-  <programme start="20261030090000 +0000" stop="20261030100000 +0000" channel="mux.bbb">
-    <title lang="en">Big Buck Bunny</title>
+  <programme start="20261101120000 +0000" stop="20261101123000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Film</category>
-    <category lang="en">Animation</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
-  <programme start="20261030100000 +0000" stop="20261030110000 +0000" channel="mux.bbb">
-    <title lang="en">Big Buck Bunny</title>
+  <programme start="20261101123000 +0000" stop="20261101130000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Film</category>
-    <category lang="en">Animation</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
-  <programme start="20261030110000 +0000" stop="20261030120000 +0000" channel="mux.bbb">
-    <title lang="en">Big Buck Bunny</title>
+  <programme start="20261101130000 +0000" stop="20261101133000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Film</category>
-    <category lang="en">Animation</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
-  <programme start="20261030120000 +0000" stop="20261030130000 +0000" channel="mux.bbb">
-    <title lang="en">Big Buck Bunny</title>
+  <programme start="20261101133000 +0000" stop="20261101140000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Film</category>
-    <category lang="en">Animation</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
-  <programme start="20261030130000 +0000" stop="20261030140000 +0000" channel="mux.bbb">
-    <title lang="en">Big Buck Bunny</title>
+  <programme start="20261101140000 +0000" stop="20261101143000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
-    <category lang="en">Film</category>
-    <category lang="en">Animation</category>
-    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
+  </programme>
+  <programme start="20261101143000 +0000" stop="20261101150000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
+  </programme>
+  <programme start="20261101150000 +0000" stop="20261101153000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
+  </programme>
+  <programme start="20261101153000 +0000" stop="20261101160000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
+  </programme>
+  <programme start="20261101160000 +0000" stop="20261101163000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
+  </programme>
+  <programme start="20261101163000 +0000" stop="20261101170000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
+  </programme>
+  <programme start="20261101170000 +0000" stop="20261101173000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
+  </programme>
+  <programme start="20261101173000 +0000" stop="20261101180000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
+  </programme>
+  <programme start="20261101180000 +0000" stop="20261101183000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
+  </programme>
+  <programme start="20261101183000 +0000" stop="20261101190000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
+  </programme>
+  <programme start="20261101190000 +0000" stop="20261101193000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
+  </programme>
+  <programme start="20261101193000 +0000" stop="20261101200000 +0000" channel="apple.bipbop">
+    <title lang="en">HLS Sample Loop</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Entertainment</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
   </programme>
   <programme start="20261030140000 +0000" stop="20261030150000 +0000" channel="mux.bbb">
     <title lang="en">Big Buck Bunny</title>
@@ -8839,6 +8762,83 @@
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
   </programme>
   <programme start="20261101080000 +0000" stop="20261101090000 +0000" channel="mux.bbb">
+    <title lang="en">Big Buck Bunny</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Film</category>
+    <category lang="en">Animation</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+  </programme>
+  <programme start="20261101090000 +0000" stop="20261101100000 +0000" channel="mux.bbb">
+    <title lang="en">Big Buck Bunny</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Film</category>
+    <category lang="en">Animation</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+  </programme>
+  <programme start="20261101100000 +0000" stop="20261101110000 +0000" channel="mux.bbb">
+    <title lang="en">Big Buck Bunny</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Film</category>
+    <category lang="en">Animation</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+  </programme>
+  <programme start="20261101110000 +0000" stop="20261101120000 +0000" channel="mux.bbb">
+    <title lang="en">Big Buck Bunny</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Film</category>
+    <category lang="en">Animation</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+  </programme>
+  <programme start="20261101120000 +0000" stop="20261101130000 +0000" channel="mux.bbb">
+    <title lang="en">Big Buck Bunny</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Film</category>
+    <category lang="en">Animation</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+  </programme>
+  <programme start="20261101130000 +0000" stop="20261101140000 +0000" channel="mux.bbb">
+    <title lang="en">Big Buck Bunny</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Film</category>
+    <category lang="en">Animation</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+  </programme>
+  <programme start="20261101140000 +0000" stop="20261101150000 +0000" channel="mux.bbb">
+    <title lang="en">Big Buck Bunny</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Film</category>
+    <category lang="en">Animation</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+  </programme>
+  <programme start="20261101150000 +0000" stop="20261101160000 +0000" channel="mux.bbb">
+    <title lang="en">Big Buck Bunny</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Film</category>
+    <category lang="en">Animation</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+  </programme>
+  <programme start="20261101160000 +0000" stop="20261101170000 +0000" channel="mux.bbb">
+    <title lang="en">Big Buck Bunny</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Film</category>
+    <category lang="en">Animation</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+  </programme>
+  <programme start="20261101170000 +0000" stop="20261101180000 +0000" channel="mux.bbb">
+    <title lang="en">Big Buck Bunny</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Film</category>
+    <category lang="en">Animation</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+  </programme>
+  <programme start="20261101180000 +0000" stop="20261101190000 +0000" channel="mux.bbb">
+    <title lang="en">Big Buck Bunny</title>
+    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
+    <category lang="en">Film</category>
+    <category lang="en">Animation</category>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" />
+  </programme>
+  <programme start="20261101190000 +0000" stop="20261101200000 +0000" channel="mux.bbb">
     <title lang="en">Big Buck Bunny</title>
     <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>
     <category lang="en">Film</category>

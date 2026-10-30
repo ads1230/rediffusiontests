@@ -15,7 +15,7 @@ https://tv-trtworld.medya.trt.com.tr/master.m3u8
 https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8
 #EXTINF:-1 tvg-id="redbull.tv" tvg-name="Red Bull TV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png" group-title="Sport",Red Bull TV
 https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
-#EXTINF:-1 tvg-id="apple.bipbop" tvg-name="Apple HLS Sample (VOD)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" group-title="Test",Apple HLS Sample (VOD)
+#EXTINF:-1 tvg-id="apple.bipbop" tvg-name="Apple HLS Sample (test stream)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" group-title="Test",Apple HLS Sample (test stream)
 https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8
-#EXTINF:-1 tvg-id="mux.bbb" tvg-name="Big Buck Bunny (VOD)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" group-title="Test",Big Buck Bunny (VOD)
+#EXTINF:-1 tvg-id="mux.bbb" tvg-name="Big Buck Bunny (test stream)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" group-title="Test",Big Buck Bunny (test stream)
 https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
