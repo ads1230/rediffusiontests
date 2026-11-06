@@ -52,11 +52,14 @@ CHANNELS = [
     ("apple.bipbop", "Apple HLS Sample Loop",
      APPLE_EXAMPLES + "img_bipbop_adv_example_ts/master.m3u8",
      "Test", COLOR_BARS_LOGO, None),
-    # Live (not VOD): the channels that exercise the live pipeline.
-    ("bbc.rd.testcard", "BBC R&D Test Card (live)",
+    # Live (not VOD): the channels that exercise the live pipeline. The
+    # numbers keep them apart: the app merges same-name streams and strips
+    # quality markers (HEVC, HD, 4K…) when comparing, so "Test Card" and
+    # "Test Card HEVC" would collapse into one channel with two variants.
+    ("bbc.rd.testcard", "BBC R&D Test Card 1 (AVC, live)",
      BBC_RD_TESTCARD + "avc-full.m3u8",
      "Test", COLOR_BARS_LOGO, None),
-    ("bbc.rd.testcard.hevc", "BBC R&D Test Card HEVC (live)",
+    ("bbc.rd.testcard.hevc", "BBC R&D Test Card 2 (HEVC, live)",
      BBC_RD_TESTCARD + "hevc-ctv.m3u8",
      "Test", COLOR_BARS_LOGO, None),
     ("apple.bipbop.fmp4", "Apple HLS Sample (fMP4)",

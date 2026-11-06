@@ -1,9 +1,9 @@
 #EXTM3U x-tvg-url="https://raw.githubusercontent.com/ads1230/rediffusiontests/main/review-epg.xml"
 #EXTINF:-1 tvg-id="apple.bipbop" tvg-name="Apple HLS Sample Loop" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" group-title="Test",Apple HLS Sample Loop
 https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8
-#EXTINF:-1 tvg-id="bbc.rd.testcard" tvg-name="BBC R&D Test Card (live)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" group-title="Test",BBC R&D Test Card (live)
+#EXTINF:-1 tvg-id="bbc.rd.testcard" tvg-name="BBC R&D Test Card 1 (AVC, live)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" group-title="Test",BBC R&D Test Card 1 (AVC, live)
 https://rdmedia.bbc.co.uk/testcard/simulcast/manifests/avc-full.m3u8
-#EXTINF:-1 tvg-id="bbc.rd.testcard.hevc" tvg-name="BBC R&D Test Card HEVC (live)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" group-title="Test",BBC R&D Test Card HEVC (live)
+#EXTINF:-1 tvg-id="bbc.rd.testcard.hevc" tvg-name="BBC R&D Test Card 2 (HEVC, live)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" group-title="Test",BBC R&D Test Card 2 (HEVC, live)
 https://rdmedia.bbc.co.uk/testcard/simulcast/manifests/hevc-ctv.m3u8
 #EXTINF:-1 tvg-id="apple.bipbop.fmp4" tvg-name="Apple HLS Sample (fMP4)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" group-title="Test",Apple HLS Sample (fMP4)
 https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8
