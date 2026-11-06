@@ -56,10 +56,10 @@ CHANNELS = [
     # numbers keep them apart: the app merges same-name streams and strips
     # quality markers (HEVC, HD, 4K…) when comparing, so "Test Card" and
     # "Test Card HEVC" would collapse into one channel with two variants.
-    ("bbc.rd.testcard", "BBC R&D Test Card 1 (AVC, live)",
+    ("bbc.rd.testcard", "BBC R&D Test Card 1",
      BBC_RD_TESTCARD + "avc-full.m3u8",
      "Test", COLOR_BARS_LOGO, None),
-    ("bbc.rd.testcard.hevc", "BBC R&D Test Card 2 (HEVC, live)",
+    ("bbc.rd.testcard.hevc", "BBC R&D Test Card 2 HEVC",
      BBC_RD_TESTCARD + "hevc-ctv.m3u8",
      "Test", COLOR_BARS_LOGO, None),
     ("apple.bipbop.fmp4", "Apple HLS Sample (fMP4)",
