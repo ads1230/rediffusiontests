@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tv SYSTEM "xmltv.dtd">
-<tv date="20261106231809 +0000" generator-info-name="reDiffusion review assets" source-info-name="epg.pw (public XMLTV) + broadcaster streams">
+<tv date="20261106231947 +0000" generator-info-name="reDiffusion review assets" source-info-name="epg.pw (public XMLTV) + broadcaster streams">
   <channel id="apple.bipbop">
     <display-name lang="en">Apple HLS Sample Loop</display-name>
     <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" />
