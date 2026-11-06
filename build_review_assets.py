@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """Builds the App Review test playlist and its matching XMLTV guide.
 
-Streams are broadcaster-published, free-to-view HLS URLs (no aggregator links).
-Guide data comes from the public epg.pw country files, trimmed to just these
-channels and re-keyed to the tvg-ids used in the playlist. Channels with no
-public listings (test patterns, Red Bull TV, NASA TV) get generic hourly blocks
-so the grid is never empty.
+Streams are Apple's public HLS examples, BBC R&D's public test card simulcast
+and Blender Foundation open movies (CC BY 3.0) from their publishers' test
+CDNs — no broadcaster channels, nothing copyrighted beyond the open licences
+(policy 2026-11-06). None of them has public listings, so the guide is made of
+"Test <genre>" slots that cycle through every genre colour the app draws; the
+epg.pw path stays in the code for any channel given an (epg country, epg
+channel id) source.
 
-Run it from a cron job on the host that serves the files; epg.pw covers about a
-day ahead, so a daily run keeps the guide populated.
+Run it from a cron job on the host that serves the files so dead streams are
+dropped promptly.
 
     python3 build_review_assets.py [--out DIR] [--days 2] [--cache DIR]
 """
@@ -24,68 +26,83 @@ EPG_BASE = "https://epg.pw/xmltv/epg_{country}.xml"
 USER_AGENT = "Mozilla/5.0 (reDiffusion review-assets builder)"
 
 # tvg-id, display name, stream URL, group, logo, (epg country, epg channel id) or None
-# Every stream URL is the broadcaster's own endpoint (or Apple's / Mux's public
-# test content). All were verified master → variant → segment on 2026-10-24;
-# the generator re-verifies on every run and drops anything that no longer plays
-# (see stream_is_alive), because these move: on 2026-10-24 the old France 24
-# master pointed at a dead Akamai host, NASA TV's variants were 404 (channel
-# shut down), Apple's HEVC sample redirected to HTML and the Akamai live test
-# pattern had no variants left.
+# Content policy (2026-11-06): ONLY Apple's own HLS example streams, BBC R&D's
+# public test card simulcast (a real live HLS stream, rdmedia.bbc.co.uk) and
+# Blender Foundation open movies (Big Buck Bunny, Tears of Steel — CC BY 3.0)
+# served from their publishers' public test CDNs (Apple, Mux, Unified
+# Streaming). BBC R&D's Big Buck Bunny / Elephants Dream are DASH-only, which
+# the app does not play, so they are not listed. No broadcaster channels: even
+# free-to-view news feeds are copyrighted programming and the review playlist
+# must not look like a channel aggregator (the earlier list — France 24, Al
+# Jazeera, DW, NHK World, Bloomberg, TRT World, Arirang, Red Bull TV — was
+# dropped for that reason). Apple's sample loop is channel 1.
+# The generator re-verifies master → variant → segment on every run and drops
+# anything that no longer plays (see stream_is_alive).
 # Logos: PNG renders from Wikimedia Commons (the app does not draw SVG), resolved
 # through the Commons API so the hashed paths are real. They double as the
-# programme image: every <programme> carries <icon src=logo> because the public
-# listings have no per-programme artwork (user request 2026-10-24).
+# programme image: every <programme> carries <icon src=logo> because these
+# channels have no per-programme artwork.
 COMMONS = "https://upload.wikimedia.org/wikipedia/commons/"
-# Only pre-rendered thumbnail widths exist; 960px is what the Commons API hands out.
-REDBULL_LOGO = COMMONS + "thumb/9/91/Logo_of_Red_bull.svg/960px-Logo_of_Red_bull.svg.png"
+COLOR_BARS_LOGO = COMMONS + "thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png"
+BBB_LOGO = COMMONS + "thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg"
+TOS_LOGO = COMMONS + "thumb/7/70/Tos-poster.png/960px-Tos-poster.png"
+APPLE_EXAMPLES = "https://devstreaming-cdn.apple.com/videos/streaming/examples/"
+BBC_RD_TESTCARD = "https://rdmedia.bbc.co.uk/testcard/simulcast/manifests/"
 CHANNELS = [
-    ("france24.en", "France 24 English",
-     "https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_5000.m3u8",
-     "News", COMMONS + "thumb/c/c1/France_24_logo_%282013%29.svg/960px-France_24_logo_%282013%29.svg.png",
-     ("GB", "12048")),
-    ("aljazeera.en", "Al Jazeera English",
-     "https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8",
-     "News", COMMONS + "0/03/Al_Jazeera_Media_Network_Logo_design.png",
-     ("GB", "12532")),
-    ("dw.en", "DW English",
-     "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8",
-     "News", COMMONS + "thumb/7/75/Deutsche_Welle_symbol_2012.svg/960px-Deutsche_Welle_symbol_2012.svg.png",
-     ("FR", "55871")),
-    ("nhkworld", "NHK World-Japan",
-     "https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8",
-     "News", COMMONS + "thumb/2/25/NHK_WORLD-JAPAN_logo.svg/960px-NHK_WORLD-JAPAN_logo.svg.png",
-     ("GB", "12051")),
-    ("bloomberg.eu", "Bloomberg TV Europe",
-     "https://bloomberg.com/media-manifest/streams/eu.m3u8",
-     "News", COMMONS + "thumb/9/9d/Bloomberg_logo-2556aaa618.svg/960px-Bloomberg_logo-2556aaa618.svg.png",
-     ("GB", "12464")),
-    ("trtworld", "TRT World",
-     "https://tv-trtworld.medya.trt.com.tr/master.m3u8",
-     "News", COMMONS + "thumb/6/6e/TRT_World_logo.svg/960px-TRT_World_logo.svg.png",
-     ("GB", "12173")),
-    ("arirang", "Arirang TV",
-     "https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8",
-     "News", COMMONS + "thumb/4/42/Arirang-TV-Logo.svg/960px-Arirang-TV-Logo.svg.png",
-     ("GB", "12037")),
-    ("redbull.tv", "Red Bull TV",
-     "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8",
-     "Sport", REDBULL_LOGO,
-     None),
-    ("apple.bipbop", "Apple HLS Sample (test stream)",
-     "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8",
-     "Test", COMMONS + "thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png",
-     None),
-    ("mux.bbb", "Big Buck Bunny (test stream)",
+    ("apple.bipbop", "Apple HLS Sample Loop",
+     APPLE_EXAMPLES + "img_bipbop_adv_example_ts/master.m3u8",
+     "Test", COLOR_BARS_LOGO, None),
+    # Live (not VOD): the channels that exercise the live pipeline.
+    ("bbc.rd.testcard", "BBC R&D Test Card (live)",
+     BBC_RD_TESTCARD + "avc-full.m3u8",
+     "Test", COLOR_BARS_LOGO, None),
+    ("bbc.rd.testcard.hevc", "BBC R&D Test Card HEVC (live)",
+     BBC_RD_TESTCARD + "hevc-ctv.m3u8",
+     "Test", COLOR_BARS_LOGO, None),
+    ("apple.bipbop.fmp4", "Apple HLS Sample (fMP4)",
+     APPLE_EXAMPLES + "img_bipbop_adv_example_fmp4/master.m3u8",
+     "Test", COLOR_BARS_LOGO, None),
+    ("apple.bipbop.16x9", "Apple HLS Sample 16:9",
+     APPLE_EXAMPLES + "bipbop_16x9/bipbop_16x9_variant.m3u8",
+     "Test", COLOR_BARS_LOGO, None),
+    ("apple.bipbop.4x3", "Apple HLS Sample 4:3",
+     APPLE_EXAMPLES + "bipbop_4x3/bipbop_4x3_variant.m3u8",
+     "Test", COLOR_BARS_LOGO, None),
+    ("mux.bbb", "Big Buck Bunny",
      "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-     "Test", COMMONS + "thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg",
-     None),
+     "Open Movies", BBB_LOGO, None),
+    ("mux.tos", "Tears of Steel",
+     "https://test-streams.mux.dev/tos_ismc/main.m3u8",
+     "Open Movies", TOS_LOGO, None),
+    ("unified.tos", "Tears of Steel (fMP4)",
+     "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
+     "Open Movies", TOS_LOGO, None),
 ]
 
-# Generic schedule for channels without public listings: (title, minutes).
+# Schedule for channels without public listings. Every test channel cycles
+# through the same "Test <genre>" slots so the guide shows all seven of the
+# app's genre colours (news, sport, drama/movies, kids, documentary,
+# entertainment/comedy, music); varied lengths and a per-channel start offset
+# keep the grid from lining up into identical columns. Entries are
+# (title, minutes, [XMLTV categories]) — the categories are what the app's
+# classifier keys on (EPGModels.keywordsByGenre).
+TEST_SLOTS = [
+    ("Test News", 30, ["News"]),
+    ("Test Comedy", 30, ["Comedy", "Entertainment"]),
+    ("Test Sport", 60, ["Sport"]),
+    ("Test Drama", 45, ["Drama"]),
+    ("Test Kids", 30, ["Children"]),
+    ("Test Documentary", 60, ["Documentary"]),
+    ("Test Music", 30, ["Music"]),
+    ("Test Movie", 90, ["Movie", "Film"]),
+    ("Test Game Show", 30, ["Game Show", "Entertainment"]),
+    ("Test Weather", 15, ["Weather", "News"]),
+]
+# Per-channel overrides keep the content channels honest about what plays.
 SYNTHETIC = {
-    "redbull.tv": [("Red Bull TV Live", 60), ("Sports Highlights", 30), ("Documentary Block", 90)],
-    "apple.bipbop": [("HLS Sample Loop", 30)],
-    "mux.bbb": [("Big Buck Bunny", 60)],
+    "mux.bbb": [("Big Buck Bunny", 60, ["Animation", "Children"]), ("Test Comedy", 30, ["Comedy"])],
+    "mux.tos": [("Tears of Steel", 60, ["Sci-Fi", "Movie"]), ("Test Drama", 30, ["Drama"])],
+    "unified.tos": [("Tears of Steel", 60, ["Sci-Fi", "Movie"]), ("Test Documentary", 30, ["Documentary"])],
 }
 
 
@@ -218,22 +235,27 @@ def extract_programmes(xml_text, source_id, new_id, group="News", icon_url=None)
     return [p for _, p in out]
 
 
-def synthetic_programmes(new_id, blocks, days, start=None, icon_url=None, group="News"):
+def synthetic_programmes(new_id, blocks, days, start=None, icon_url=None, group="News", offset=0):
+    """Generic programme slots. `blocks` entries are (title, minutes) or
+    (title, minutes, [categories]); `offset` rotates the starting slot so
+    neighbouring channels do not show identical columns."""
     out = []
     icon = f'\n    <icon src="{sx.escape(icon_url, {chr(34): "&quot;"})}" />' if icon_url else ""
     if start is None:
         start = dt.datetime.now(dt.timezone.utc).replace(minute=0, second=0, microsecond=0) - dt.timedelta(hours=6)
     end = dt.datetime.now(dt.timezone.utc).replace(minute=0, second=0, microsecond=0) + dt.timedelta(days=days)
-    i = 0
+    i = offset
     t = start
     while t < end:
-        title, minutes = blocks[i % len(blocks)]
+        block = blocks[i % len(blocks)]
+        title, minutes = block[0], block[1]
+        categories = list(block[2]) if len(block) > 2 else categories_for(title, group)
         stop = t + dt.timedelta(minutes=minutes)
         out.append(
             f'  <programme start="{t:%Y%m%d%H%M%S} +0000" stop="{stop:%Y%m%d%H%M%S} +0000" channel="{new_id}">\n'
             f'    <title lang="en">{sx.escape(title)}</title>\n'
-            f'    <desc lang="en">Live stream published by the broadcaster. No programme listings are available for this channel.</desc>'
-            f'{category_xml(categories_for(title, group))}{icon}\n'
+            f'    <desc lang="en">Test programme slot ({sx.escape(", ".join(categories))}) for the review playlist. The stream is a test loop; this title only exercises the guide.</desc>'
+            f'{category_xml(categories)}{icon}\n'
             f'  </programme>'
         )
         t = stop
@@ -257,7 +279,7 @@ def main():
     programme_xml = []
     report = []
     published = []
-    for tvg_id, name, url, group, logo, source in CHANNELS:
+    for index, (tvg_id, name, url, group, logo, source) in enumerate(CHANNELS):
         alive, detail = stream_is_alive(url)
         if not alive and not args.keep_dead:
             report.append(f"{name}: DROPPED, stream failed ({detail})")
@@ -277,7 +299,8 @@ def main():
             except Exception as exc:  # network trouble: fall back to generic blocks
                 report.append(f"{name}: epg.pw {country} unavailable ({exc}); using generic blocks")
         if not progs:
-            progs = synthetic_programmes(tvg_id, SYNTHETIC.get(tvg_id, [("Live", 60)]), args.days, icon_url=logo or None, group=group)
+            progs = synthetic_programmes(tvg_id, SYNTHETIC.get(tvg_id, TEST_SLOTS), args.days,
+                                         icon_url=logo or None, group=group, offset=index)
             report.append(f"{name}: {len(progs)} generic blocks")
         else:
             starts = re.findall(r'start="(\d{8})(\d{4})', "\n".join(progs))
@@ -287,7 +310,7 @@ def main():
             # goes blank before the next daily rebuild.
             last_stop = max(re.findall(r'stop="(\d{14})', "\n".join(progs)))
             resume = dt.datetime.strptime(last_stop, "%Y%m%d%H%M%S").replace(tzinfo=dt.timezone.utc)
-            padding = synthetic_programmes(tvg_id, [(f"{name} Live", 60)], args.days, start=resume, icon_url=logo or None, group=group)
+            padding = synthetic_programmes(tvg_id, TEST_SLOTS, args.days, start=resume, icon_url=logo or None, group=group, offset=index)
             if padding:
                 report[-1] += f" (+{len(padding)} generic blocks to fill the horizon)"
             progs.extend(padding)
