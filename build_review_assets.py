@@ -70,13 +70,13 @@ CHANNELS = [
      "Test", COLOR_BARS_LOGO, None),
     ("mux.bbb", "Big Buck Bunny",
      "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-     "Open Movies", BBB_LOGO, None),
+     "Blender", BBB_LOGO, None),
     ("mux.tos", "Tears of Steel",
      "https://test-streams.mux.dev/tos_ismc/main.m3u8",
-     "Open Movies", TOS_LOGO, None),
+     "Blender", TOS_LOGO, None),
     ("unified.tos", "Tears of Steel (fMP4)",
      "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
-     "Open Movies", TOS_LOGO, None),
+     "Blender", TOS_LOGO, None),
 ]
 
 # Schedule for channels without public listings. Every test channel cycles
@@ -98,6 +98,10 @@ TEST_SLOTS = [
     ("Test Game Show", 30, ["Game Show", "Entertainment"]),
     ("Test Weather", 15, ["Weather", "News"]),
 ]
+# Group names must avoid the app's VOD markers (movie, film, series, cinema,
+# vod…): LiveTVM3UParser.isVODEntry files such entries under VOD, and they
+# then never become live channels for the guide to match ("Open Movies" did
+# exactly that on 2026-11-06).
 # Per-channel overrides keep the content channels honest about what plays.
 SYNTHETIC = {
     "mux.bbb": [("Big Buck Bunny", 60, ["Animation", "Children"]), ("Test Comedy", 30, ["Comedy"])],

@@ -11,9 +11,9 @@ https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_exam
 https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8
 #EXTINF:-1 tvg-id="apple.bipbop.4x3" tvg-name="Apple HLS Sample 4:3" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SMPTE_Color_Bars_16x9.svg/960px-SMPTE_Color_Bars_16x9.svg.png" group-title="Test",Apple HLS Sample 4:3
 https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_4x3/bipbop_4x3_variant.m3u8
-#EXTINF:-1 tvg-id="mux.bbb" tvg-name="Big Buck Bunny" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" group-title="Open Movies",Big Buck Bunny
+#EXTINF:-1 tvg-id="mux.bbb" tvg-name="Big Buck Bunny" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Big_buck_bunny_poster_big.jpg/960px-Big_buck_bunny_poster_big.jpg" group-title="Blender",Big Buck Bunny
 https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
-#EXTINF:-1 tvg-id="mux.tos" tvg-name="Tears of Steel" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Tos-poster.png/960px-Tos-poster.png" group-title="Open Movies",Tears of Steel
+#EXTINF:-1 tvg-id="mux.tos" tvg-name="Tears of Steel" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Tos-poster.png/960px-Tos-poster.png" group-title="Blender",Tears of Steel
 https://test-streams.mux.dev/tos_ismc/main.m3u8
-#EXTINF:-1 tvg-id="unified.tos" tvg-name="Tears of Steel (fMP4)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Tos-poster.png/960px-Tos-poster.png" group-title="Open Movies",Tears of Steel (fMP4)
+#EXTINF:-1 tvg-id="unified.tos" tvg-name="Tears of Steel (fMP4)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Tos-poster.png/960px-Tos-poster.png" group-title="Blender",Tears of Steel (fMP4)
 https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8
